@@ -74,14 +74,15 @@ public:
                 vertexRemoved = min_heap->extractMin();
             }
             printf("Array of Vertex Visited: ");
-            for (int y = 0; y < numVertices; ++y) {
-                 printf("%d ", vertexVisited[y]);
+            for (int i = 0; i < numVertices; ++i) {
+                // printf("%d ", vertexVisited[i]);
             }
             printf("\nKey of Min: %d\n", temp);
-            printf("Vertex Current: %d\n\n", i);
+            printf("Vertex Current: %d\n", i);
+            printf("Vertex of Min: %d\n\n", vertexRemoved);
             weights[vertexRemoved] = temp;
             vertexVisited[vertexRemoved] = 1;
-            for (int x = vertexRemoved+1; x < numVertices; ++x) {
+            for (int i = vertexRemoved+1; i < numVertices; ++i) {
                 /*
                 min_heap->decreaseKey(i, adjMatrix[vertexRemoved][i]);
                 if (min_heap->getKey(i) > adjMatrix[vertexRemoved][i]) {
@@ -89,17 +90,15 @@ public:
                 }
                 */
 
-                if (min_heap->isInMinHeap(x)) {
-                    if (min_heap->getKey(x) > adjMatrix[vertexRemoved][x]) {
-                        previousVertex[x] = vertexRemoved;
+                if (min_heap->isInMinHeap(i)) {
+                    min_heap->decreaseKey(i, adjMatrix[vertexRemoved][i]);
+                    if (min_heap->getKey(i) > adjMatrix[vertexRemoved][i]) {
+                        previousVertex[i] = vertexRemoved;
                     }
-                    min_heap->decreaseKey(x, adjMatrix[vertexRemoved][x]);
-                    printf("Inserted %d, to %d, from %d \n\n",adjMatrix[vertexRemoved][x],x,vertexRemoved);
                 }
-                else if (adjMatrix[vertexRemoved][x] != INT_MAX) {
-                    min_heap->insert(x,adjMatrix[vertexRemoved][x]);
-                    printf("Inserted %d, to %d, from %d \n\n",adjMatrix[vertexRemoved][x],x,vertexRemoved);
-                    previousVertex[x] = vertexRemoved;
+                else if (adjMatrix[vertexRemoved][i] != INT_MAX) {
+                    min_heap->insert(i,adjMatrix[vertexRemoved][i]);
+                    previousVertex[i] = vertexRemoved;
                 }
 
             }

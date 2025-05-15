@@ -3,14 +3,26 @@
 #include "heap.h"
 int main() {
 
+
     /*
 
     MinHeap p(5);
 
-    p.insert(2,5);
-    p.insert(1,6);
-    p.insert(3,3);
-    p.decreaseKey(1,2);
+    p.insert(1,2);
+    p.insert(3,6);
+    p.insert(4,9);
+    p.extractMin();//visited 1
+    p.print();
+    printf("\n");
+    p.insert(2,3);
+    p.decreaseKey(3,5);
+    p.decreaseKey(4,1);
+    p.extractMin();//visited 4
+    p.print();
+    printf("\n");
+    p.decreaseKey(3,8);
+    p.decreaseKey(4,7);
+    p.decreaseKey(4,4);
     p.print();
     printf("Key of Min: %d\n",p.getKeyOfMin());
     printf("Vertex of Min: %d\n", p.getVertexOfMin());
@@ -29,16 +41,18 @@ int main() {
     Graph g(5);
     g.addEdge(0, 1, 2);
     g.addEdge(0, 3, 6);
-    g.addEdge(0, 4, 9);
+    g.addEdge(0, 4, 1);
     g.addEdge(1, 2, 3);
-    g.addEdge(1, 3, 8);
-    g.addEdge(1, 4, 5);
-    g.addEdge(2, 3, 1);
-    g.addEdge(2, 4, 7);
-    g.addEdge(3, 4, 4);
+    g.addEdge(1, 3, 4);
+    g.addEdge(1, 4, 7);
+    g.addEdge(2, 3, 5);
+    g.addEdge(2, 4, 8);
+    g.addEdge(3, 4, 9);
 
-    //doens't go backwards
-    //duplicate numbers fucks everythign
     g.primMST();
+    /*
+
+    */
     return 0;
+
 }

@@ -41,7 +41,7 @@ public:
         heapArray[size] = -1;
         keyArray[minTemp] = INT_MAX;
         position[minTemp] = -1;
-        if (size <= 0) {
+        if (size == 0) {
             heapArray[0] = -1;
         }
         else {

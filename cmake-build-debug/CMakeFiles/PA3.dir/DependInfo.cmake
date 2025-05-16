@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/vinh1/OneDrive/Documents/GitHub/programming-assignment-3-vinh15me/main.cpp" "CMakeFiles/PA3.dir/main.cpp.obj" "gcc" "CMakeFiles/PA3.dir/main.cpp.obj.d"
+  "C:/Users/vinh1/Documents/GitHub/programming-assignment-3-vinh15me/main.cpp" "CMakeFiles/PA3.dir/main.cpp.obj" "gcc" "CMakeFiles/PA3.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -64,18 +64,11 @@ public:
                 }
             }
             else if (adjMatrix[vertexRemoved][i] != INT_MAX) {
-                printf("Key: %d\n", adjMatrix[vertexRemoved][i]);
-                printf("Vertex Origin: %d\n", vertexRemoved);
-                printf("Vertex Target: %d\n\n", i);
                 min_heap->insert(i,adjMatrix[vertexRemoved][i]);
                 previousVertex[i] = vertexRemoved;
             }
 
         }
-        printf("\n");
-        min_heap->print();
-        printf("\n");
-
         for (int i = 1; i < numVertices; ++i) {
             int temp = min_heap->getKeyOfMin();
             vertexRemoved = min_heap->extractMin();
@@ -83,12 +76,6 @@ public:
                 temp = min_heap->getKeyOfMin();
                 vertexRemoved = min_heap->extractMin();
             }
-            printf("Array of Vertex Visited: ");
-            for (int y = 0; y < numVertices; ++y) {
-                 printf("%d ", vertexVisited[y]);
-            }
-            printf("\nKey of Min: %d\n", temp);
-            printf("Vertex Current: %d\n\n", i);
             weights[vertexRemoved] = temp;
             vertexVisited[vertexRemoved] = 1;
             for (int x = vertexRemoved+1; x < numVertices; ++x) {
@@ -98,38 +85,20 @@ public:
                     previousVertex[i] = vertexRemoved;
                 }
                 */
-                printf("Is X in minHeap? %d\n",min_heap->isInMinHeap(x));
-                printf("X: %d\n", x);
-                printf("Is X visited? %d\n",vertexVisited[x]);
-
-                printf("Visited ");
-                for (int y = 0; y < numVertices; ++y) {
-                    printf("%d ", vertexVisited[y]);
-                }
-                printf("\n");
-
                 if (vertexVisited[x] == 1) {
-
-                    printf("Skipped\n");
-                    printf("Skipped\n");
                 }
                 else if (min_heap->isInMinHeap(x)) {
-                    printf("Decreased Key\n");
                     if (min_heap->getKey(x) > adjMatrix[vertexRemoved][x]) {
                         previousVertex[x] = vertexRemoved;
                     }
                     min_heap->decreaseKey(x, adjMatrix[vertexRemoved][x]);
                 }
                 else if (adjMatrix[vertexRemoved][x] != INT_MAX) {
-                    printf("Inserted\n");
                     min_heap->insert(x,adjMatrix[vertexRemoved][x]);
 
                     previousVertex[x] = vertexRemoved;
                 }
             }
-            printf("\n");
-            min_heap->print();
-            printf("\n\n");
         }
 
         for (int i = 1; i < numVertices; ++i) {
